@@ -5,7 +5,6 @@
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
-@import url(../libs/perfect-scrollbar/perfect-scrollbar.css);
 html {
   line-height: 1.15;
   /* 1 */
@@ -371,6 +370,12 @@ h6 {
 
 p {
   margin: 0; }
+
+button {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none; }
 
 svg {
   display: block;
@@ -2586,10 +2591,113 @@ a {
 .all-sale.hidden {
   display: none; }
 
+/*
+ * Container style
+ */
+.ps {
+  overflow: hidden !important;
+  overflow-anchor: none;
+  -ms-overflow-style: none;
+  touch-action: auto;
+  -ms-touch-action: auto; }
+
+/*
+ * Scrollbar rail styles
+ */
+.ps__rail-x {
+  display: none;
+  opacity: 0;
+  -o-transition: background-color .2s linear, opacity .2s linear;
+  transition: background-color .2s linear, opacity .2s linear;
+  -webkit-transition: background-color .2s linear, opacity .2s linear;
+  height: 15px;
+  /* there must be 'bottom' or 'top' for ps__rail-x */
+  bottom: 0px;
+  /* please don't change 'position' */
+  position: absolute; }
+
+.ps__rail-y {
+  display: none;
+  -o-transition: background-color .2s linear, opacity .2s linear;
+  transition: background-color .2s linear, opacity .2s linear;
+  -webkit-transition: background-color .2s linear, opacity .2s linear;
+  width: 12px;
+  /* there must be 'right' or 'left' for ps__rail-y */
+  right: 0;
+  margin-top: 1px;
+  /* please don't change 'position' */
+  position: absolute; }
+
+.ps--active-x > .ps__rail-x,
+.ps--active-y > .ps__rail-y {
+  display: block;
+  background-color: #0c2030; }
+
+/*
+ * Scrollbar thumb styles
+ */
+.ps__thumb-x {
+  background-color: #aaa;
+  border-radius: 6px;
+  -o-transition: background-color .2s linear, height .2s ease-in-out;
+  transition: background-color .2s linear, height .2s ease-in-out;
+  -webkit-transition: background-color .2s linear, height .2s ease-in-out;
+  height: 6px;
+  /* there must be 'bottom' for ps__thumb-x */
+  bottom: 2px;
+  /* please don't change 'position' */
+  position: absolute; }
+
+.ps__thumb-y {
+  background-color: #1c354b;
+  -o-transition: background-color .2s linear, width .2s ease-in-out;
+  transition: background-color .2s linear, width .2s ease-in-out;
+  -webkit-transition: background-color .2s linear, width .2s ease-in-out;
+  width: 12px;
+  /* there must be 'right' for ps__thumb-y */
+  right: 0;
+  /* please don't change 'position' */
+  position: absolute; }
+
+.ps__thumb-y::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: 50%;
+  margin-top: -10px;
+  left: 3px;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  border-bottom: 3px solid #01f4c7; }
+
+.ps__thumb-y::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: 50%;
+  margin-top: 10px;
+  left: 3px;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  border-top: 3px solid #01f4c7; }
+
+.ps__rail-y:hover > .ps__thumb-y,
+.ps__rail-y:focus > .ps__thumb-y,
+.ps__rail-y.ps--clicking .ps__thumb-y {
+  background-color: #23435f; }
+
+/* MS supports */
+@supports (-ms-overflow-style: none) {
+  .ps {
+    overflow: auto !important; } }
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
     .banner {
       height: 180px; }
     .guarantees__deposit {
       height: 210px; }
     .guarantees__card {
-      height: 210px; } }
+      height: 210px; }
+  .ps {
+    overflow: auto !important; } }

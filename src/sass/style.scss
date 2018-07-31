@@ -4,8 +4,6 @@
 @import "common/mixin";
 @import "common/fonts";
 @import "common/scaffolding";
-//libs
-@import "../libs/perfect-scrollbar/perfect-scrollbar.css";
 //blocks
 @import "../blocks/main-header/main-header";
 @import "../blocks/main-nav/main-nav";
@@ -35,3 +33,5 @@
 @import "../blocks/pop-up/pop-up";
 @import "../blocks/loader/loader";
 @import "../blocks/all-sale/all-sale";
+//libs
+@import "libs/perfect-scrollbar"

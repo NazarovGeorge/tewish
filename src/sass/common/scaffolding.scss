@@ -49,7 +49,9 @@ h6 {
 p {
   margin: 0;
 }
-
+button {
+  user-select: none;
+}
 svg {
   display: block;
   pointer-events: none;
