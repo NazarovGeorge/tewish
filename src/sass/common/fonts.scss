@@ -1,0 +1,32 @@
+@font-face {
+  font-family: "TrebuchetMS";
+  src: url("../fonts/TrebuchetMS/subset-TrebuchetMS.woff2") format("woff2"),
+    url("../fonts/TrebuchetMS/subset-TrebuchetMS.woff") format("woff"),
+    url("../fonts/TrebuchetMS/subset-TrebuchetMS.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "TrebuchetMS";
+  src: url("../fonts/TrebuchetMS/subset-TrebuchetMS-Bold.woff2") format("woff2"),
+    url("../fonts/TrebuchetMS/subset-TrebuchetMS-Bold.woff") format("woff"),
+    url("../fonts/TrebuchetMS/subset-TrebuchetMS-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto/subset-Roboto-Regular.woff2") format("woff2"),
+    url("../fonts/Roboto/subset-Roboto-Regular.woff") format("woff"),
+    url("../fonts/Roboto/subset-Roboto-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto/subset-Roboto-Light.woff2") format("woff2"),
+    url("../fonts/Roboto/subset-Roboto-Light.woff") format("woff"),
+    url("../fonts/Roboto/subset-Roboto-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}

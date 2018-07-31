@@ -1,0 +1,75 @@
+.main-nav {
+  flex-grow: 1;
+  display: flex;
+  align-self: stretch;
+  justify-content: center;
+}
+
+.main-nav__list {
+  display: flex;
+  position: relative;
+}
+
+.main-nav__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 17px;
+  margin-left: 18px;
+  &:first-child {
+    margin-left: 0;
+  }
+  &:last-child {
+    margin-right: 0;
+    .main-nav__link::after {
+      display: none;
+    }
+  }
+}
+
+.main-nav__link {
+  position: relative;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  font-size: 16px;
+  line-height: 20px;
+  color: #399eb4;
+  transition: all 0.2s ease;
+  &::after {
+    content: "";
+    position: absolute;
+    width: 1px;
+    top: 50%;
+    right: -18px;
+    margin-top: -5px;
+    height: 10px;
+    background-color: #1c4c57;
+  }
+}
+
+.main-nav__icon {
+  margin-right: 6px;
+  svg {
+    display: block;
+    fill: #399eb4;
+    transition: all 0.2s ease;
+  }
+}
+
+.main-nav__icon--guarantees {
+  width: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  svg:last-child {
+    margin-top: -2px;
+  }
+}
+
+.main-nav__link:hover {
+  color: #ffffff;
+  .main-nav__icon svg {
+    fill: #ffffff;
+  }
+}

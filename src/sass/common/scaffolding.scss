@@ -1,0 +1,64 @@
+html {}
+
+body {
+  position: relative;
+  min-width: 1240px;
+  font-family: "TrebuchetMS", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.2;
+  font-weight: 400;
+  background: #192229;
+  background: #0e2537 url("../images/main-bg.png") center no-repeat;
+  background-size: cover;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  -ms-interpolation-mode: bicubic;
+  user-select: none;
+}
+
+.visually-hidden {
+  display: none
+}
+
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+  /* For some Androids */
+}
+
+.container {
+  width: 1200px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+svg {
+  display: block;
+  pointer-events: none;
+}
+
+ul {
+  @include reset-list;
+}
+
+a {
+  text-decoration: none;
+}

@@ -1,0 +1,28 @@
+.main-header {
+  position: relative;
+  background-color: #172936;
+  padding-top: 7px;
+  padding-bottom: 6px;
+  margin-bottom: 67px;
+  z-index: 3;
+}
+
+.main-header__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.main-header__logo {
+  margin-right: 9px;
+}
+
+.main-header__contacts {
+  margin-right: 9px;
+}
+
+.main-header__add {
+  margin-left: 32px;
+  display: flex;
+  align-items: center;
+}

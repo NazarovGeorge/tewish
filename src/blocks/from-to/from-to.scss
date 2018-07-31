@@ -1,0 +1,27 @@
+.from-to {
+  display: flex;
+  font-size: 0;
+  label {
+    text-transform: lowercase;
+    color: #399eb4;
+    font-size: 16px;
+    line-height: 1;
+    margin-left: 10px;
+    user-select: none;
+  }
+  input {
+    box-sizing: border-box;
+    width: 23px;
+    padding: 3px;
+    margin-left: 10px;
+    font-size: 13px;
+    line-height: 15px;
+    color: #ffffff;
+    text-transform: lowercase;
+    text-align: center;
+    background-color: #11293b;
+    border: none;
+    outline: none;
+    user-select: none;
+  }
+}

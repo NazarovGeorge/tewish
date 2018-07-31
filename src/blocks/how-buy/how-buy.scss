@@ -1,0 +1,174 @@
+$how-buy-link: #fdc503;
+.how-buy {
+  margin-bottom: 59px;
+}
+
+.how-buy__title {
+  margin-bottom: 24px;
+}
+
+.how-buy__title-icon {
+  margin-right: 6px;
+}
+
+.how-buy__inner {
+  display: flex;
+  width: 100%;
+}
+
+.how-buy__min {
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 240px;
+  padding: 20px;
+  font-size: 18px;
+  color: #ffffff;
+  background-color: #1c354c;
+  text-align: center;
+}
+
+.how-buy__min-text {
+  margin-top: 22px;
+}
+
+.how-buy__min-value {
+  display: block;
+  margin-top: 14px;
+  font-size: 50px;
+  line-height: 1;
+}
+
+.how-buy__links {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  padding: 35px 30px;
+  border: 1px solid #2e658a;
+  background-color: #224b66;
+}
+
+.how-buy__links-intro {
+  position: relative;
+  width: 390px;
+  padding: 22px 0;
+  font-size: 18px;
+  line-height: 30px;
+  color: #ffffff;
+  text-transform: uppercase;
+  &::before {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 71px;
+    background-color: #178397;
+    right: 12px;
+    top: 26.5px;
+    transform: rotate(45deg)
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 71px;
+    background-color: #178397;
+    right: 12px;
+    bottom: 26.5px;
+    transform: rotate(-45deg)
+  }
+}
+
+.how-buy__telegram-yh {
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 20px;
+  width: 250px;
+  height: 100%;
+}
+
+.how-buy__telegram {
+  position: relative;
+  display: flex;
+  color: $how-buy-link;
+  align-items: center;
+  transition: all 0.3s ease;
+  &:hover {
+    .how-buy__telegram-icon {
+      box-shadow: 0 0 16px 1px rgba($color: #61eaff, $alpha: 1), inset 0 0 16px 9px rgba($color: #61eaff, $alpha: 1);
+    }
+  }
+}
+
+.how-buy__telegram-icon {
+  width: 39px;
+  height: 39px;
+  margin-right: 15px;
+  border-radius: 50%;
+  box-shadow: 0 0 8px 1px rgba($color: #61eaff, $alpha: 0.8), inset 0 0 10px 9px rgba($color: #61eaff, $alpha: 0.8);
+  transition: all 0.2s ease;
+  svg {
+    fill: #ffffff;
+  }
+}
+
+.how-buy__yh {
+  position: absolute;
+  display: flex;
+  color: $how-buy-link;
+  align-items: center;
+  bottom: 32px;
+  left: 20px;
+  transition: all 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.how-buy__yh-icon {
+  width: 39px;
+  height: 39px;
+  margin-right: 15px;
+  border-radius: 50%;
+  svg {
+    fill: $how-buy-link;
+  }
+}
+
+.how-buy__telegram-yh:hover {
+  .how-buy__telegram {
+    transform: translateY(-32px)
+  }
+  .how-buy__yh {
+    transform: translateY(32px);
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.how-buy__steam {
+  display: flex;
+  padding-left: 10px;
+  color: $how-buy-link;
+  align-items: center;
+  &:hover {
+    .how-buy__steam-icon {
+      svg {
+        fill: $how-buy-link
+      }
+    }
+  }
+}
+
+.how-buy__steam-icon {
+  width: 39px;
+  height: 39px;
+  margin-right: 12px;
+  border-radius: 50%;
+  svg {
+    fill: #00f6ff;
+    transition: all 0.2s ease;
+  }
+}

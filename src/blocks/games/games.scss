@@ -1,0 +1,91 @@
+
+
+.games__list {
+  display: flex;
+}
+
+.games__item {
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 10px 18px;
+  color: #fdc503;
+  cursor: pointer;
+  border: 1px solid #064952;
+  margin-right: -1px;
+  user-select: none;
+
+}
+
+.games__icon {
+  margin-right: 9px;
+  background-image: url("../images/icons/sprites.png");
+  background-repeat: no-repeat;
+}
+
+.cs-go__icon {
+  width: 19px;
+  height: 24px;
+  background-position: -20px -432px;
+}
+
+.dota__icon {
+  width: 18px;
+  height: 18px;
+  background-position: -20px -132px;
+}
+
+.h1z1__icon {
+  width: 44px;
+  height: 18px;
+  background-position: -20px -76px;
+}
+
+.team-fortress__icon {
+  width: 21px;
+  height: 21px;
+  background-position: -20px -309px;
+}
+
+.games__item.active {
+  background-image: linear-gradient(to right, #007881, #084d65);
+  color: #ffffff;
+  border: none;
+  padding: 11px 19px;
+  z-index: 2;
+
+  .cs-go__icon {
+    background-position: -20px -496px;
+  }
+  .dota__icon {
+   background-position: -20px -190px;
+  }
+  .h1z1__icon {
+    background-position: -20px -20px;
+  }
+  .team-fortress__icon {
+    background-position: -20px -248px;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 0;
+    margin-left: -3px;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #055f71;
+  }
+}
+.games__info {
+  display: flex;
+  align-items: center;
+  line-height: 20px;
+}
+.games__inter {
+  margin: 0 5px;
+}
