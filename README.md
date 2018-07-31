@@ -20,7 +20,7 @@
 
 Время выполнения 4 рабочих дня (≈ 35 часов)
 
-### <a href="#https://nazarovgeorge.github.io/Tewish">Demo</a>
+### <a href="https://nazarovgeorge.github.io/Tewish/">Demo</a>
 
 #### Чтобы начать:
 
