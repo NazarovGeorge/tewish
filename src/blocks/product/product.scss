@@ -5,7 +5,6 @@
   background-color: #275262;
   overflow: hidden;
 }
-
 .product.block {
   .product__weapon {
     img {
@@ -20,17 +19,16 @@
   }
 }
 
-.product:hover {
-  .product__overlay {
-    opacity: 1;
-    visibility: visible;
-  }
-  .product__btn {
-    transform: scale(1);
-  }
-}
-
-.product.hover {
+// .product:hover {
+//   .product__overlay {
+//     opacity: 1;
+//     visibility: visible;
+//   }
+//   .product__btn {
+//     transform: scale(1);
+//   }
+// }
+.product.inspect {
   .product__overlay {
     opacity: 1;
     visibility: visible;
@@ -63,6 +61,8 @@
   width: 90px;
   padding: 6px 10px;
   text-transform: uppercase;
+  text-align: center;
+  color: #000000;
   background: linear-gradient(to right, #ead903, #e6d203);
   box-shadow: 0 0 10px 3px rgba($color: #deff00, $alpha: 0.5);
   cursor: pointer;
@@ -95,6 +95,7 @@
   line-height: 15px;
   color: #ffffff;
   text-transform: uppercase;
+  backface-visibility: hidden;
 }
 
 .product__stattrack {

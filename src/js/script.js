@@ -2,12 +2,11 @@
 // scrollbar
 (function () {
 
-  const ps = new PerfectScrollbar('.catalog', {
-    wheelSpeed: 1,
-    wheelPropagation: true,
-    minScrollbarLength: 165,
-    maxScrollbarLength: 165
+  const ps = new PerfectScrollbar(".catalog", {
+    wheelSpeed: 0.5,
+    wheelPropagation: true
   });
+
 })();
 (function () {
   let gamesItems = document.querySelectorAll(".games__item");
@@ -206,6 +205,9 @@
     })
     return newArr
   }
+  function isNumeric(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
+  }
   let btnSteps = returnPixelPostions(sliderSteps);
 
   let minValue = 0;
@@ -329,12 +331,14 @@
 
 
   inputMin.addEventListener("input", event => {
-
     if (inputMin.value > btnSteps.length - 1) {
       inputMin.value = inputMax.value;
     }
-    if (inputMin.value > inputMax.value && inputMax.value.length >= 1) {
+    if (inputMin.value > inputMax.value && inputMax.value.length >= 1 && isNumeric(inputMin.value)) {
       inputMin.value = inputMax.value
+    }
+    if (inputMin.value.length >= 1 && !isNumeric(inputMin.value)) {
+      inputMin.value = btnSteps[0];
     }
     btnSteps.forEach((item, i) => {
       if (inputMin.value == i) {
@@ -357,6 +361,10 @@
     }
     if (inputMax.value < inputMin.value && inputMax.value.length >= 1) {
       inputMax.value = inputMin.value;
+
+    }
+    if (inputMax.value.length >= 1 && !isNumeric(inputMax.value)) {
+      inputMax.value = btnSteps.length - 1;
     }
     btnSteps.forEach((item, i) => {
       if (inputMax.value == i) {
@@ -422,11 +430,12 @@
 // pop-up
 (function () {
   let catalog = document.querySelector(".catalog");
-  let popUp = document.querySelector(".pop-up__inner");
-  let overlay = document.querySelector(".pop-up");
+  let popUp = document.querySelector(".pop-up");
   let filters = document.querySelector(".filters");
-  let parent;
-
+  let currentCoord;
+  let catalogCoord;
+  let currentBottomEdge;
+  let catalogBottomEdge;
   function getCoords(elem) {
     var box = elem.getBoundingClientRect();
 
@@ -435,31 +444,109 @@
       left: box.left + pageXOffset
     };
   }
-  let catalogCoord = getCoords(catalog);
+  let weaponsQualuty = {
+    "bs": "Battle-Scarred",
+    "ww": "Well-Worn",
+    "ft": "Field-Tested",
+    "mw": "Minimal Wear",
+    "fn": "Factory New"
+  }
+  function renderPopUpElements(prod, pop) {
+    pop.querySelector(".pop-up__model-quality").textContent = weaponsQualuty[prod.querySelector(".product__quality").textContent];
 
-  catalog.addEventListener("click", event => {
-    let target = event.target;
+    if (!prod.classList.contains("block")) {
+      pop.querySelector(".pop-up__block").style.display = "none"
+    }
+    else {
+      pop.querySelector(".pop-up__block").style.display = "block"
+    }
+    if (!prod.querySelector(".product__time")) {
+      pop.querySelector(".pop-up__time").style.display = "none"
+    }
+    else {
+      pop.querySelector(".pop-up__time").style.display = "block";
+      pop.querySelector(".pop-up__time").textContent = prod.querySelector(".product__time").textContent.replace(/:/g, " : ")
+    }
+    if (!prod.querySelector(".product__stattrack")) {
+      pop.querySelector(".pop-up__stattrack").style.display = "none"
+    }
+    else {
+      pop.querySelector(".pop-up__stattrack").style.display = "flex";
+    }
 
-    if (target.matches(".product__btn")) {
-      parent = target;
+    pop.querySelectorAll(".pop-up__sticker").forEach(item => {
+      item.remove();
+    })
+    let fragment = document.createDocumentFragment();
+    prod.querySelectorAll(".product__sticker").forEach(item => {
+      let clone = item.cloneNode(true);
+      clone.classList.remove("product__sticker");
+      clone.classList.add("pop-up__sticker")
+      fragment.appendChild(clone)
+    })
+    pop.querySelector(".pop-up__stickers").appendChild(fragment);
+
+  }
+  let currentElem = null;
+  catalog.addEventListener("mouseover", event => {
+
+    if (currentElem) {
+      return;
+    }
+    var target = event.target;
+    if (target.matches(".pop-up, .pop-up *")) return;
+    if (!target.closest(".product")) return;
+    while (target != this) {
+      if (target.classList.contains("product")) break;
+      target = target.parentNode;
+    }
+    if (target == this) return;
+    currentElem = target;
+    currentCoord = getCoords(target);
+    catalogCoord = getCoords(catalog);
+    currentBottomEdge = currentCoord.top + target.offsetHeight;
+    catalogBottomEdge = catalogCoord.top + catalog.offsetHeight;
+
+    if (currentBottomEdge > catalogBottomEdge) {
+      popUp.style.top = (100) + "%";
+      popUp.style.left = (currentCoord.left - catalogCoord.left) + (target.offsetWidth / 2) + "px";
+    } else {
+      popUp.style.top = (currentCoord.top - catalogCoord.top) + (target.offsetHeight) + filters.offsetHeight + "px";
+      popUp.style.left = (currentCoord.left - catalogCoord.left) + (target.offsetWidth / 2) + "px";
+    }
+    renderPopUpElements(target, popUp);
+    popUp.classList.remove("hidden");
+  });
+  catalog.addEventListener("mouseout", event => {
+
+    if (!currentElem) return;
+    let relatedTarget = event.relatedTarget;
+    if (relatedTarget) {
+      while (relatedTarget) {
+        if (relatedTarget == currentElem) return;
+        relatedTarget = relatedTarget.parentNode;
+      }
+    }
+    currentElem.classList.remove("inspect");
+    popUp.classList.add("hidden");
+    currentElem = null;
+  });
+  catalog.addEventListener("contextmenu", event => {
+
+    event.preventDefault();
+
+    if (event.target.matches(".product, .product *")) {
+      let parent = event.target;
+
       while (!parent.classList.contains("product")) {
         parent = parent.parentNode;
       }
-      let parentCoord = getCoords(parent);
-      parent.classList.add("hover");
-      overlay.classList.remove("hidden");
-      popUp.style.top = (parentCoord.top - catalogCoord.top) + parent.offsetHeight + filters.offsetHeight + "px";
-      popUp.style.left = (parentCoord.left - catalogCoord.left) + (parent.offsetWidth / 2) + "px";
+      parent.classList.toggle("inspect")
     }
   })
-  document.addEventListener("click", event => {
-    let target = event.target;
+  //perfect-scrollbar event
+  catalog.addEventListener("ps-scroll-y", event => {
+    popUp.classList.add("hidden");
+  })
 
-    if (!overlay.classList.contains("hidden")) {
-      if (!target.matches(".pop-up__inner, .pop-up__inner *, .product__btn")) {
-        overlay.classList.add("hidden");
-        parent.classList.remove("hover")
-      }
-    }
-  })
 })();

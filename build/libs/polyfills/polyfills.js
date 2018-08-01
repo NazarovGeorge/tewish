@@ -35,5 +35,10 @@ if (navigator.userAgent.match(/msie/i) || navigator.userAgent.match(/trident/i) 
     }
 
   })();
-
+  //remove polyfill
+	(function () {
+		function remove() { this.parentNode && this.parentNode.removeChild(this); }
+		if (!Element.prototype.remove) Element.prototype.remove = remove;
+		if (Text && !Text.prototype.remove) Text.prototype.remove = remove;
+	})();
 }

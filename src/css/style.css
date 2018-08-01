@@ -1518,20 +1518,11 @@ a {
 .product.block .product__stattrack {
   display: none; }
 
-.product:hover .product__overlay {
+.product.inspect .product__overlay {
   opacity: 1;
   visibility: visible; }
 
-.product:hover .product__btn {
-  -webkit-transform: scale(1);
-      -ms-transform: scale(1);
-          transform: scale(1); }
-
-.product.hover .product__overlay {
-  opacity: 1;
-  visibility: visible; }
-
-.product.hover .product__btn {
+.product.inspect .product__btn {
   -webkit-transform: scale(1);
       -ms-transform: scale(1);
           transform: scale(1); }
@@ -1567,6 +1558,8 @@ a {
   width: 90px;
   padding: 6px 10px;
   text-transform: uppercase;
+  text-align: center;
+  color: #000000;
   background: -webkit-gradient(linear, left top, right top, from(#ead903), to(#e6d203));
   background: -webkit-linear-gradient(left, #ead903, #e6d203);
   background: -o-linear-gradient(left, #ead903, #e6d203);
@@ -1608,7 +1601,9 @@ a {
   font-size: 14px;
   line-height: 15px;
   color: #ffffff;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden; }
 
 .product__stattrack {
   position: absolute;
@@ -2267,18 +2262,6 @@ a {
     fill: #5dbfdf; }
 
 .pop-up {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background-color: transparent;
-  z-index: 5; }
-
-.pop-up.hidden {
-  display: none; }
-
-.pop-up__inner {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   top: 0;
@@ -2288,8 +2271,16 @@ a {
   width: 273px;
   margin-left: -136px;
   margin-top: 7.5px;
-  z-index: 6; }
-  .pop-up__inner::before {
+  z-index: 6;
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  -webkit-transition-property: visibility, opacity;
+  -o-transition-property: visibility, opacity;
+  transition-property: visibility, opacity; }
+  .pop-up::before {
     content: "";
     position: absolute;
     top: -7.5px;
@@ -2305,6 +2296,10 @@ a {
         -ms-transform: rotate(45deg);
             transform: rotate(45deg);
     z-index: 2; }
+
+.pop-up.hidden {
+  opacity: 0;
+  visibility: hidden; }
 
 .pop-up__top {
   -webkit-box-sizing: border-box;
@@ -2699,5 +2694,7 @@ a {
       height: 210px; }
     .guarantees__card {
       height: 210px; }
+    .pop-up__sticker {
+      width: 50px; }
   .ps {
     overflow: auto !important; } }
