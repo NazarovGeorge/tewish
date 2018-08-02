@@ -327,7 +327,7 @@ template {
 
 body {
   position: relative;
-  min-width: 1240px;
+  min-width: 1350px;
   font-family: "TrebuchetMS", Arial, sans-serif;
   font-size: 16px;
   font-weight: 400;
@@ -357,8 +357,9 @@ img {
 
 .container {
   width: 1200px;
-  padding: 0 20px;
-  margin: 0 auto; }
+  padding: 0 75px;
+  margin: 0 auto;
+  /* padding 75px for pop-up*/ }
 
 h1,
 h2,

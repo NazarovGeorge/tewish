@@ -518,9 +518,10 @@
     popUp.classList.remove("hidden");
   });
   catalog.addEventListener("mouseout", event => {
-
     if (!currentElem) return;
     let relatedTarget = event.relatedTarget;
+
+
     if (relatedTarget) {
       while (relatedTarget) {
         if (relatedTarget == currentElem) return;
