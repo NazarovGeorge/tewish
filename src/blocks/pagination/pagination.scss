@@ -1,0 +1,50 @@
+.pagination {
+  position: relative;
+  display: flex;
+  margin: 50px auto 0 auto;
+  
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 13px;
+    line-height: 20px;
+    color: #ffffff;;
+    border: 1.5px solid #064952;
+    margin: 0 2px;
+    transition: all 0.2s ease;
+    &:hover {
+      background-color: rgba($color: #064952, $alpha: 0.5);
+    }
+  }
+  a.active {
+    background-color: #064952;
+    color: #ffffff;
+  }
+  a.pagination__prev {
+    position: relative;
+    border-color: transparent;
+    backface-visibility: hidden;
+
+    &:hover {
+      background-color: transparent;
+      transform: translateX(-2px)
+    }
+  }
+  a.pagination__next {
+    position: relative;
+    border-color: transparent;
+    backface-visibility: hidden;
+
+    &:hover {
+      background-color: transparent;
+      transform: translateX(2px)
+    }
+  }
+  a.disable {
+    &:hover {
+      background-color: transparent;
+      transform: translateX(0px)
+    }
+  }
+}

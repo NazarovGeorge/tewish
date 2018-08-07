@@ -1,12 +1,10 @@
 "use strict";
 // scrollbar
 (function () {
-
   const ps = new PerfectScrollbar(".catalog", {
     wheelSpeed: 0.5,
     wheelPropagation: true
   });
-
 })();
 (function () {
   let gamesItems = document.querySelectorAll(".games__item");
@@ -436,6 +434,8 @@
   let catalogCoord;
   let currentBottomEdge;
   let catalogBottomEdge;
+  console.log(document.querySelectorAll(".product").length);
+  
   function getCoords(elem) {
     var box = elem.getBoundingClientRect();
 
