@@ -184,9 +184,11 @@
   let sliderSteps = document.querySelectorAll(".slider__step");
   let sliderLine = document.querySelector(".slider__line");
 
+  let btnWidth = Math.ceil(btnMin.offsetWidth / 2);  
+  let btnPosition = btnWidth;
 
-  let btnPosition = 5;
   let minPositon = 0;
+  
   let sliderStepWidth = sliderSteps[0].offsetWidth;
 
   function returnPixelPostions(arr) {
@@ -211,8 +213,10 @@
   let minValue = 0;
   let maxValue = btnSteps.length - 1;
 
-  btnMin.style.left = btnSteps[1] + "px";
-  btnMax.style.left = btnSteps[6] + "px";
+
+  btnMin.style.left = btnSteps[inputMin.value] + "px";
+  btnMax.style.left = btnSteps[inputMax.value] + "px";
+  sliderStepsZindex();
   function setInputValue() {
     inputMin.value = pxToNum(btnMin.style.left);
     inputMax.value = pxToNum(btnMax.style.left);
@@ -434,7 +438,6 @@
   let catalogCoord;
   let currentBottomEdge;
   let catalogBottomEdge;
-  console.log(document.querySelectorAll(".product").length);
   
   function getCoords(elem) {
     var box = elem.getBoundingClientRect();

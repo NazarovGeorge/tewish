@@ -1,5 +1,8 @@
 .product {
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;;
   position: relative;
   padding: 10px;
   background-color: #275262;
@@ -74,6 +77,7 @@
 }
 
 .product__top {
+  flex-shrink: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -119,11 +123,15 @@
 
 .product__weapon {
   width: 100%;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .product__bottom {
+  flex-shrink: 0;
   position: relative;
-  padding-top: 4px;
 }
 
 .product__stickers {
@@ -147,7 +155,7 @@
 
 .product__time {
   position: absolute;
-  bottom: 100%;
+  bottom: calc(100% + 4px);
   border-radius: 12px;
   padding: 3px 8px;
   background-color: #102537;

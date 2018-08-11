@@ -21,7 +21,6 @@
     margin-right: 0;
   }
   .product__top {
-    margin-bottom: 27px;
   }
   .product__block {
     width: 48px;
@@ -32,10 +31,12 @@
     }
   }
   .product__weapon {
-    height: 46px;
   }
   .product__time {
     font-size: 11px;
+  }
+  .product__bottom {
+    min-height: 19px
   }
   .product__sticker {
     img {
@@ -55,14 +56,15 @@
     margin-right: 0;
   }
   .product__top {
-    margin-bottom: 16px;
   }
   .product__block {
     width: 44px;
     height: 13px;
   }
   .product__weapon {
-    height: 36px;
+  }
+  .product__bottom {
+    min-height: 16px
   }
   .product__time {
     font-size: 10px;
